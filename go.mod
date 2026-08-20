@@ -1,12 +1,14 @@
-module changeme
+module github.com/selyusize/my-home
 
 go 1.25.0
 
 require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
+	github.com/google/go-github/v90 v90.0.0
 	github.com/joho/godotenv v1.5.1
 	github.com/wailsapp/wails/v3 v3.0.0-beta.9
+	golang.org/x/oauth2 v0.36.0
 	google.golang.org/grpc v1.83.1
 	gorm.io/gorm v1.31.2
 )
@@ -27,6 +29,7 @@ require (
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/goccy/go-yaml v1.19.2 // indirect
 	github.com/godbus/dbus/v5 v5.2.2 // indirect
+	github.com/google/go-querystring v1.2.0 // indirect
 	github.com/jchv/go-winloader v0.0.0-20250406163304-c1995be93bd1 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect

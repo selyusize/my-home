@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=myapp
+Exec=myapp
+Icon=myapp
+Categories=Development;
+Terminal=false
+Keywords=wails
+Version=1.0
+StartupNotify=false

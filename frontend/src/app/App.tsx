@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { AppLayout } from '@app/layout'
-import { UserPage } from '@pages/user'
+import { router } from '@app/router'
 import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
 import { TooltipProvider } from '@/shared/ui'
 
 export function App() {
@@ -10,9 +10,7 @@ export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <AppLayout>
-          <UserPage />
-        </AppLayout>
+        <RouterProvider router={router} />
       </TooltipProvider>
     </QueryClientProvider>
   )

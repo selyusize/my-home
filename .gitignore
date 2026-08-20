@@ -14,3 +14,7 @@ build/ios/xcode/gen/
 build/android/overlay.json
 build/android/gen/
 .agents/
+.scannerwork/
+.sonar/
+.env.sonar
+coverage.out

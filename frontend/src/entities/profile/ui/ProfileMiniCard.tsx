@@ -1,12 +1,9 @@
-import { AvatarBadge, AvatarGroup, AvatarImage } from '@/shared/ui'
-import { mockProfile } from '../model/mock'
+import { AvatarGroup } from '@/shared/ui'
 
 const ProfileMiniCard = () => {
-  const profile = mockProfile
   return (
     <div>
-      <AvatarGroup>
-      </AvatarGroup>
+      <AvatarGroup></AvatarGroup>
     </div>
   )
 }

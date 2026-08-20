@@ -1,17 +1,15 @@
 import { LeftPanelWidget } from '@widgets/left-panel'
-import type { ReactNode } from 'react'
+import { Outlet } from 'react-router-dom'
 
-type AppLayoutProps = {
-  children: ReactNode
-}
-
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout() {
   return (
     <div className="flex h-full flex-col bg-[#06070f] text-white">
-      <header className="drag flex h-titlebar shrink-0 items-center border-white/10 pr-4 pl-traffic-lights"></header>
-      <div className="flex flex-1">
+      <header className="drag flex h-titlebar shrink-0 items-center border-b border-white/10 pr-4 pl-traffic-lights" />
+      <div className="flex min-h-0 flex-1">
         <LeftPanelWidget />
-        <main className="border w-full">{children}</main>
+        <main className="min-w-0 flex-1 p-6">
+          <Outlet />
+        </main>
       </div>
     </div>
   )
