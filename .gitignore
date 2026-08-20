@@ -1,5 +1,9 @@
 .task
 bin
+.env
+.env.local
+.pnpm-store
+node_modules
 frontend/dist
 frontend/node_modules
 build/linux/appimage/build
