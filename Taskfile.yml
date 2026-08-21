@@ -34,6 +34,19 @@ tasks:
     cmds:
       - task: "{{.GOOS}}:run"
 
+  db:up:
+    summary: Starts the local PostgreSQL container
+    cmds:
+      - docker compose up -d --wait postgres
+    preconditions:
+      - sh: docker info > /dev/null 2>&1
+        msg: "Docker is required to start PostgreSQL. Install Docker Desktop and start it first."
+
+  db:down:
+    summary: Stops the local PostgreSQL container
+    cmds:
+      - docker compose stop postgres
+
   dev:
     summary: Runs the application in development mode
     cmds:

@@ -5,7 +5,8 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import wails from "@wailsio/runtime/plugins/vite";
 
-const src = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "src");
+const root = path.dirname(fileURLToPath(import.meta.url));
+const src = path.resolve(root, "src");
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,6 +24,7 @@ export default defineConfig({
       "@features": path.resolve(src, "features"),
       "@entities": path.resolve(src, "entities"),
       "@shared": path.resolve(src, "shared"),
+      "@bindings": path.resolve(root, "bindings"),
     },
   },
   plugins: [react(), tailwindcss(), wails("./bindings")],

@@ -7,6 +7,10 @@ export type NavItem = {
   icon: LucideIcon
 }
 
+export const getNavItemId = (item: NavItem) => item.to
+
+export const getNavItemLabel = (item: NavItem) => item.title
+
 export const navItems: NavItem[] = [
   {
     title: 'Дом',

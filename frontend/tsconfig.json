@@ -28,7 +28,9 @@
       "@entities": ["src/entities"],
       "@entities/*": ["src/entities/*"],
       "@shared": ["src/shared"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@bindings": ["bindings"],
+      "@bindings/*": ["bindings/*"]
     },
 
     /* Linting */
