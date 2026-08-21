@@ -11,16 +11,13 @@ import (
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
 
-func init() {
-	application.RegisterEvent[string]("time")
-}
-
 type App struct {
 	database db.Client
 	wails    *application.App
 }
 
 func New(assets embed.FS) (*App, error) {
+	registerEvents()
 	database, err := homedb.New()
 	if err != nil {
 		return nil, err
@@ -50,6 +47,10 @@ func (a *App) Run() error {
 		return fmt.Errorf("app: not initialized")
 	}
 	return a.wails.Run()
+}
+
+func registerEvents() {
+	application.RegisterEvent[string]("time")
 }
 
 func (a *App) startClock() {

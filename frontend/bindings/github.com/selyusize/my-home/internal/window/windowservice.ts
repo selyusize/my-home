@@ -8,3 +8,7 @@ import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wails
 export function Open(title: string, rawURL: string): $CancellablePromise<void> {
     return $Call.ByID(1805692238, title, rawURL);
 }
+
+export function OpenInCursor(root: string): $CancellablePromise<void> {
+    return $Call.ByID(2474887099, root);
+}

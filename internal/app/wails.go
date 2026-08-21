@@ -2,6 +2,7 @@ package app
 
 import (
 	"embed"
+	"runtime"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
@@ -44,10 +45,23 @@ func newWails(assets embed.FS, svc *services) *application.App {
 		},
 	})
 
+	menu := app.NewMenu()
+	if runtime.GOOS == "darwin" {
+		menu.AddRole(application.AppMenu)
+	} else {
+		file := menu.AddSubmenu("File")
+		file.AddRole(application.Quit)
+	}
+	menu.AddRole(application.EditMenu)
+	menu.AddRole(application.ViewMenu)
+	menu.AddRole(application.WindowMenu)
+	app.Menu.Set(menu)
+
 	app.Window.NewWithOptions(application.WebviewWindowOptions{
-		Title:  "Window 1",
-		Width:  1000,
-		Height: 618,
+		Title:              "Window 1",
+		Width:              1000,
+		Height:             618,
+		UseApplicationMenu: true,
 		Mac: application.MacWindow{
 			InvisibleTitleBarHeight: 50,
 			Backdrop:                application.MacBackdropTranslucent,
