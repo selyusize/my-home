@@ -6,6 +6,7 @@ import (
 	"github.com/selyusize/my-home/internal/docker"
 	"github.com/selyusize/my-home/internal/git"
 	"github.com/selyusize/my-home/internal/settings"
+	timeoutsvc "github.com/selyusize/my-home/internal/timeout"
 	"github.com/selyusize/my-home/internal/window"
 	"github.com/selyusize/my-home/pkg/db"
 )
@@ -19,6 +20,7 @@ type services struct {
 	window     *window.WindowService
 	settings   *settings.SettingsService
 	localRepos *git.LocalReposService
+	timeout    *timeoutsvc.TimeoutService
 }
 
 func newServices(database db.Client) (*services, error) {
@@ -68,5 +70,6 @@ func newServices(database db.Client) (*services, error) {
 		window:     window.NewWindowService(),
 		settings:   settingsService,
 		localRepos: localReposService,
+		timeout:    timeoutsvc.NewTimeoutService(bitrixService),
 	}, nil
 }

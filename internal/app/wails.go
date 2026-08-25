@@ -21,6 +21,9 @@ func newWails(assets embed.FS, svc *services) *application.App {
 			application.NewServiceWithOptions(svc.bitrix, application.ServiceOptions{
 				Name: "BitrixService",
 			}),
+			application.NewServiceWithOptions(svc.timeout, application.ServiceOptions{
+				Name: "TimeoutService",
+			}),
 			application.NewServiceWithOptions(svc.docker, application.ServiceOptions{
 				Name: "DockerService",
 			}),

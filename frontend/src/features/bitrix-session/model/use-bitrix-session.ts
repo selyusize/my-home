@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { Events } from '@wailsio/runtime'
 import { toast } from 'sonner'
 import { Open as openPage } from '@bindings/github.com/selyusize/my-home/internal/window/windowservice'
 import { TimeManStatus } from '@bindings/github.com/selyusize/my-home/pkg/bitrix/models'
@@ -55,6 +57,13 @@ export function useBitrixSession(): BitrixSessionBindProps {
     staleTime: 30_000,
   })
   const connected = Boolean(account)
+
+  useEffect(() => {
+    return Events.On('bitrix:timeman', () => {
+      void queryClient.invalidateQueries({ queryKey: bitrixKeys.timeMan() })
+    })
+  }, [queryClient])
+
   const { data: timeMan, dataUpdatedAt: timeManFetchedAt, refetch: refetchTimeMan } = useQuery({
     queryKey: bitrixKeys.timeMan(),
     queryFn: bitrixApi.timeMan,

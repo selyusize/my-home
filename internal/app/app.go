@@ -51,6 +51,7 @@ func (a *App) Run() error {
 
 func registerEvents() {
 	application.RegisterEvent[string]("time")
+	application.RegisterEvent[string]("bitrix:timeman")
 }
 
 func (a *App) startClock() {
